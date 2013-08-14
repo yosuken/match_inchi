@@ -26,6 +26,5 @@ i2 = InChI_file.new("../../HMDB/compound/parse_HMDB_InChI.out")
 mf = Match_files.new(i1, i2)
 mf.match
 #pp mf.results
-mf.make_output
-
+puts mf.make_output
 

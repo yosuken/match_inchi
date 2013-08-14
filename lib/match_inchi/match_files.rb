@@ -23,11 +23,11 @@ module MatchInChI
 			}
 		end
 		def make_output
-			@results.keys.sort.each{ |k|
+			outstr = @results.keys.sort.map{ |k|
 				next unless @results[k]
 				flag, hash = @results[k]
-				puts [k, flag, hash.to_inchi]*"\t"
-			}
+				[k, flag, hash.to_inchi]*"\t"
+			}.compact
 		end
 	end
 end

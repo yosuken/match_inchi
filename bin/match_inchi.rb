@@ -8,5 +8,6 @@ unless f3
 	raise "usage: match_inchi input1 input2 output"
 end
 i1, i2 = [f1, f2].map{ |f| InChI_file.new(f) }
+fout = open(f3, "w")
 mf = Match_files.new(i1, i2)
-mf.make_output
+fout.puts mf.make_output
