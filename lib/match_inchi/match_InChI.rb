@@ -38,26 +38,6 @@ module MatchInChI
 			}
 			return nil
 		end
-		def do_match6
-			[[@i1, @i2], [@i2, @i1]].each{ |i1, i2|
-				i1w = i1.without_tms
-				next unless i1w
-				if i1w == i2.default
-					return [6, i2.default]
-				end
-			}
-			return nil
-		end
-		def do_match5
-			[[@i1, @i2], [@i2, @i1]].each{ |i1, i2|
-				i1w = i1.without_ms
-				next unless i1w
-				if i1w == i2.default
-					return [5, i2.default]
-				end
-			}
-			return nil
-		end
 		def do_match3
 			i1 = @i1.default.dup
 			i2 = @i2.default.dup
@@ -97,6 +77,26 @@ module MatchInChI
 			else
 				return nil
 			end
+		end
+		def do_match5
+			[[@i1, @i2], [@i2, @i1]].each{ |i1, i2|
+				i1w = i1.without_ms
+				next unless i1w
+				if i1w == i2.default
+					return [5, i2.default]
+				end
+			}
+			return nil
+		end
+		def do_match6
+			[[@i1, @i2], [@i2, @i1]].each{ |i1, i2|
+				i1w = i1.without_tms
+				next unless i1w
+				if i1w == i2.default
+					return [6, i2.default]
+				end
+			}
+			return nil
 		end
 	end
 end
