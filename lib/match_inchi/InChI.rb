@@ -7,9 +7,11 @@ module MatchInChI
 			@inchi = inchi
 		end
 		def set_parts
-			# (reference: InChI_TechMan.pdf, Appendix 3)
+			# reference: InChI_TechMan.pdf, Appendix 3
+			# http://www.inchi-trust.org/fileadmin/user_upload/software/inchi-v1.04/InChI_TechMan.pdf
+
 			# [formula]/(chqpbtms/i(hbtms)/f((hqbtms/i(hbtms)o))/r(....))
-			# for this time, the first "chqpbtms" is the target sublayer
+			# This gem checks just the first "chqpbtms".
 			@parts = Hash.new
 			flags = @inchi.split(/\//)[1..-1]
 			formula = flags.shift
